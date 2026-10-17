@@ -378,7 +378,7 @@ export default function App() {
                     <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl bg-[#0a1128]">
                       {!imageError ? (
                         <img
-                          src="/jesheeeeeeeeeeeeeeeeee.jpeg"
+                          src="/profile.jpeg"
                           alt="Jeshema Begam – B.Tech AI & Data Science Student"
                           onError={() => setImageError(true)}
                           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
