@@ -19,7 +19,8 @@ import {
   X,
   Compass,
   Lightbulb,
-  ExternalLink
+  ExternalLink,
+  FolderGit2
 } from 'lucide-react';
 
 interface SkillItem {
@@ -56,6 +57,7 @@ export default function App() {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Goal', href: '#goal' },
     { label: 'Contact', href: '#contact' }
   ];
@@ -112,7 +114,7 @@ export default function App() {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'goal', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'goal', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -612,6 +614,84 @@ export default function App() {
                 <span className="font-semibold text-blue-300">Learning in Progress:</span> Continuously expanding knowledge in modern algorithms, data structures, and computer science principles as part of the B.Tech curriculum.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* ==================== PROJECTS SECTION ==================== */}
+        <section
+          id="projects"
+          className="py-16 sm:py-24 bg-[#0a1128] relative border-t border-blue-900/60"
+        >
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-semibold uppercase tracking-wider mb-3">
+                <FolderGit2 className="w-3.5 h-3.5" />
+                <span>Work</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Projects
+              </h2>
+              <p className="text-base text-blue-200/90 mt-3 max-w-xl mx-auto">
+                Hands-on work applying Python and data science to real-world problems.
+              </p>
+              <div className="w-12 h-1 bg-blue-500 mx-auto mt-3 rounded-full" />
+            </div>
+
+            <article className="bg-[#0e1b3d]/90 rounded-3xl border border-blue-400/25 shadow-xl shadow-black/25 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+              <figure className="bg-white flex flex-col items-center justify-center p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-blue-400/20">
+                <img
+                  src="/elnino-air-temp.png"
+                  alt="Line chart of air temperature for the first 20 observations in the El Niño dataset"
+                  width={640}
+                  height={480}
+                  loading="lazy"
+                  className="w-full h-auto rounded-lg"
+                />
+                <figcaption className="text-xs text-slate-500 mt-2">
+                  Air temperature — first 20 observations
+                </figcaption>
+              </figure>
+
+              <div className="p-6 sm:p-8 flex flex-col gap-5">
+                <div className="flex flex-wrap gap-2">
+                  {['Python', 'Pandas', 'Matplotlib', 'Data Analysis'].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-semibold px-2.5 py-1 rounded-full border bg-blue-500/15 text-blue-300 border-blue-400/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-2xl font-bold text-white text-balance">
+                  El Niño Climate Analysis Using Python
+                </h3>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-2">
+                    Abstract
+                  </h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    This project presents a Python-based exploratory analysis of El Niño-related climate observations. The dataset contains 782 records and 9 variables, including buoy identification, geographic location, wind measurements, humidity, air temperature, and sea surface temperature (SST). Using Python and Pandas, the dataset was loaded, inspected for structure, data types, and missing values, with no missing values identified. Line charts were created to examine variations in air temperature and SST across the observations. Descriptive statistical analysis of SST showed an average temperature of 28.29°C, with values ranging from 22.44°C to 30.34°C, a standard deviation of 1.39°C, and an overall range of 7.90°C. The findings demonstrate how Python-based visualization and statistical techniques can support the initial understanding of ocean-climate data and temperature variability associated with El Niño conditions. Future work can extend this analysis by studying SST anomalies, relationships between climate variables, and predictive models for El Niño forecasting.
+                  </p>
+                </div>
+
+                <dl className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-blue-900/80">
+                  {[
+                    { label: 'Records', value: '782' },
+                    { label: 'Avg SST', value: '28.29°C' },
+                    { label: 'SST Range', value: '7.90°C' },
+                    { label: 'Std Dev', value: '1.39°C' }
+                  ].map((stat) => (
+                    <div key={stat.label} className="bg-[#0a1128]/70 rounded-xl p-3 border border-blue-500/20">
+                      <dt className="text-[11px] text-blue-300/80 font-medium">{stat.label}</dt>
+                      <dd className="text-lg font-bold text-white">{stat.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </article>
           </div>
         </section>
 
