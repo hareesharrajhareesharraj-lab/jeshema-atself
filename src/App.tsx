@@ -19,7 +19,10 @@ import {
   X,
   Compass,
   Lightbulb,
-  ExternalLink
+  ExternalLink,
+  Brain,
+  LayoutGrid,
+  Share2
 } from 'lucide-react';
 
 interface SkillItem {
@@ -106,6 +109,33 @@ export default function App() {
       icon: <Presentation className="w-6 h-6" />,
       iconBg: 'bg-rose-500/20 text-rose-300 border border-rose-400/30',
       tagColor: 'bg-rose-500/15 text-rose-300 border-rose-400/30'
+    },
+    {
+      id: 'machine-learning',
+      name: 'Machine Learning',
+      description: 'Building models that learn patterns from data',
+      category: 'AI & Data Science',
+      icon: <Brain className="w-6 h-6" />,
+      iconBg: 'bg-violet-500/20 text-violet-300 border border-violet-400/30',
+      tagColor: 'bg-violet-500/15 text-violet-300 border-violet-400/30'
+    },
+    {
+      id: 'microsoft-365',
+      name: 'Microsoft 365',
+      description: 'Collaborating productively across Office apps and Teams',
+      category: 'Cloud Productivity',
+      icon: <LayoutGrid className="w-6 h-6" />,
+      iconBg: 'bg-orange-500/20 text-orange-300 border border-orange-400/30',
+      tagColor: 'bg-orange-500/15 text-orange-300 border-orange-400/30'
+    },
+    {
+      id: 'sharepoint',
+      name: 'SharePoint',
+      description: 'Managing documents, sites, and team content',
+      category: 'Collaboration',
+      icon: <Share2 className="w-6 h-6" />,
+      iconBg: 'bg-teal-500/20 text-teal-300 border border-teal-400/30',
+      tagColor: 'bg-teal-500/15 text-teal-300 border-teal-400/30'
     }
   ];
 
@@ -561,12 +591,12 @@ export default function App() {
               <div className="w-12 h-1 bg-blue-500 mx-auto mt-3 rounded-full" />
             </div>
 
-            {/* Five Skill Cards */}
+            {/* Skill Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skills.map((skill, index) => (
                 <div
                   key={skill.id}
-                  className={`group bg-[#0e1b3d]/90 rounded-2xl p-6 sm:p-7 border border-blue-400/25 hover:border-blue-400/60 shadow-lg shadow-black/25 hover:shadow-xl hover:shadow-blue-900/20 hover:bg-[#12224c] transition-all duration-200 flex flex-col justify-between ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                  className="group bg-[#0e1b3d]/90 rounded-2xl p-6 sm:p-7 border border-blue-400/25 hover:border-blue-400/60 shadow-lg shadow-black/25 hover:shadow-xl hover:shadow-blue-900/20 hover:bg-[#12224c] transition-all duration-200 flex flex-col justify-between"
                 >
                   <div>
                     {/* Header: Icon + Category Badge */}
