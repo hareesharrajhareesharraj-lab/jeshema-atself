@@ -6,23 +6,23 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0a1128;
+  background-color: #F8FAFC;
 }
 
-/* Custom subtle blue scrollbar */
+/* Custom subtle light-blue scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a1128;
+  background: #EEF6FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e2e5c;
+  background: #BFDCEB;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2b417e;
+  background: #0EA5C6;
 }
