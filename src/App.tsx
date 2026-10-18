@@ -22,6 +22,7 @@ import {
   ExternalLink,
   FolderGit2
 } from 'lucide-react';
+import AcademicSection from './components/AcademicSection';
 
 interface SkillItem {
   id: string;
@@ -536,6 +537,8 @@ export default function App() {
               </div>
 
             </div>
+
+            <AcademicSection />
           </div>
         </section>
 
