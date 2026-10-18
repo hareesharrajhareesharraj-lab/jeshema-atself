@@ -234,7 +234,7 @@ export default function App() {
             onClick={(e) => scrollToSection(e, '#home')}
             className="group flex items-center gap-3 focus:outline-hidden focus:ring-2 focus:ring-blue-400 rounded-lg p-1"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-900 text-white flex items-center justify-center font-bold text-lg tracking-wider shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200 border border-blue-400/40">
+            <div className="w-11 h-11 rounded-xl bg-black text-white flex items-center justify-center font-bold text-lg tracking-wider shadow-md shadow-black/40 group-hover:scale-105 group-hover:bg-white group-hover:text-black transition-all duration-200 border-2 border-white">
               JB
             </div>
             <div className="flex flex-col">
