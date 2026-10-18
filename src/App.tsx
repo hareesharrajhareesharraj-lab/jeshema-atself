@@ -22,7 +22,8 @@ import {
   ExternalLink,
   FolderGit2
 } from 'lucide-react';
-import AcademicSection from './components/AcademicSection';
+import { LayoutGrid, School } from 'lucide-react';
+import MenuDrawer, { type DrawerView } from './components/MenuDrawer';
 
 interface SkillItem {
   id: string;
@@ -39,6 +40,12 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [drawerView, setDrawerView] = useState<DrawerView | null>(null);
+  const closeDrawer = React.useCallback(() => setDrawerView(null), []);
+  const openDrawer = (view: DrawerView) => {
+    setMobileMenuOpen(false);
+    setDrawerView(view);
+  };
 
   // Contact Form state
   const [formData, setFormData] = useState({
@@ -227,7 +234,7 @@ export default function App() {
             onClick={(e) => scrollToSection(e, '#home')}
             className="group flex items-center gap-3 focus:outline-hidden focus:ring-2 focus:ring-blue-400 rounded-lg p-1"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-900 text-white flex items-center justify-center font-bold text-lg tracking-wider shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200 border border-blue-400/40">
+            <div className="w-11 h-11 rounded-xl bg-black text-white flex items-center justify-center font-bold text-lg tracking-wider shadow-md shadow-black/40 group-hover:scale-105 group-hover:bg-white group-hover:text-black transition-all duration-200 border-2 border-white">
               JB
             </div>
             <div className="flex flex-col">
@@ -260,6 +267,14 @@ export default function App() {
                 </a>
               );
             })}
+            <button
+              type="button"
+              onClick={() => openDrawer('menu')}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.07] transition-all duration-200"
+            >
+              <LayoutGrid className="w-4 h-4 text-blue-300" aria-hidden="true" />
+              Menu
+            </button>
           </nav>
 
           {/* Desktop Direct Contact CTA */}
@@ -311,6 +326,15 @@ export default function App() {
                 </a>
               );
             })}
+            <button
+              type="button"
+              onClick={() => openDrawer('menu')}
+              className="w-full flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+            >
+              <LayoutGrid className="w-4 h-4 text-blue-300" aria-hidden="true" />
+              Menu
+              <span className="ml-auto text-xs text-blue-300/80">Academics · Blog</span>
+            </button>
             <div className="pt-3">
               <a
                 href="#contact"
@@ -538,7 +562,17 @@ export default function App() {
 
             </div>
 
-            <AcademicSection />
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={() => openDrawer('academics')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all duration-200 group text-sm sm:text-base border border-blue-400/40"
+              >
+                <School className="w-4 h-4 text-blue-100" aria-hidden="true" />
+                <span>Academics</span>
+                <ChevronRight className="w-4 h-4 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
           </div>
         </section>
 
@@ -695,6 +729,18 @@ export default function App() {
                 </dl>
               </div>
             </article>
+
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={() => openDrawer('blog')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all duration-200 group text-sm sm:text-base border border-blue-400/40"
+              >
+                <BookOpen className="w-4 h-4 text-blue-100" aria-hidden="true" />
+                <span>Blog</span>
+                <ChevronRight className="w-4 h-4 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
           </div>
         </section>
 
@@ -1120,6 +1166,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <MenuDrawer view={drawerView} onClose={closeDrawer} onNavigate={setDrawerView} />
     </div>
   );
 }
