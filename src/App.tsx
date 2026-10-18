@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { LayoutGrid, School } from 'lucide-react';
 import MenuDrawer, { type DrawerView } from './components/MenuDrawer';
+import AmbientMotion from './components/AmbientMotion';
 
 interface SkillItem {
   id: string;
@@ -225,6 +226,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#475569] flex flex-col font-sans selection:bg-[#0EA5C6] selection:text-white">
+      <AmbientMotion />
       {/* -------------------- STICKY NAVIGATION BAR -------------------- */}
       <header className="sticky top-0 z-50 bg-[#F8FAFC]/85 backdrop-blur-md border-b border-[#DCE7F2] shadow-lg shadow-[#0F172A]/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
