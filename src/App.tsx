@@ -239,9 +239,20 @@ export default function App() {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-[#0F172A] tracking-tight text-base sm:text-lg leading-tight group-hover:text-[#0EA5C6] transition-colors">
-                Jeshema Begam
+                <span className="sr-only">Jeshema Begam</span>
+                <span aria-hidden="true">
+                  {'Jeshema Begam'.split('').map((char, i) => (
+                    <span
+                      key={i}
+                      className="logo-letter"
+                      style={{ animationDelay: `${i * 0.06}s` }}
+                    >
+                      {char === ' ' ? '\u00A0' : char}
+                    </span>
+                  ))}
+                </span>
               </span>
-              <span className="text-xs text-[#0EA5C6] font-medium">
+              <span className="text-xs text-[#0EA5C6] font-medium logo-subtitle">
                 B.Tech AI & Data Science
               </span>
             </div>
