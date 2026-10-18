@@ -5,7 +5,7 @@ const interests = ['Artificial Intelligence', 'Data Science', 'Python', 'Machine
 
 export default function AcademicSection() {
   return (
-    <div id="academics" className="mt-12 sm:mt-16 scroll-mt-24">
+    <div>
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 border border-blue-400/30 flex items-center justify-center">
           <School className="w-5 h-5" />
