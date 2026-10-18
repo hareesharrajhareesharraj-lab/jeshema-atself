@@ -234,9 +234,9 @@ export default function App() {
             onClick={(e) => scrollToSection(e, '#home')}
             className="group flex items-center gap-3 focus:outline-hidden focus:ring-2 focus:ring-[#0EA5C6]/40 rounded-lg p-1"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#0EA5C6] text-white flex items-center justify-center font-bold text-lg tracking-wider shadow-md shadow-[#0EA5C6]/25 group-hover:scale-105 group-hover:bg-white group-hover:text-[#0EA5C6] transition-all duration-200 border-2 border-[#0EA5C6]">
-              JB
-            </div>
+  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-md shadow-[#0EA5C6]/25 group-hover:scale-105 transition-all duration-200 border-2 border-[#0EA5C6]">
+  <img src="/images/jb-logo.jpg" alt="JB logo" className="w-full h-full object-cover scale-125 mix-blend-multiply" />
+  </div>
             <div className="flex flex-col">
               <span className="font-bold text-[#0F172A] tracking-tight text-base sm:text-lg leading-tight group-hover:text-[#0EA5C6] transition-colors">
                 <span className="sr-only">Jeshema Begam</span>
@@ -395,9 +395,9 @@ export default function App() {
                       ) : (
                         /* Styled fallback matching the user's photo details */
                         <div className="w-full h-full bg-gradient-to-b from-[#EEF6FF] via-white to-[#EEF6FF] flex flex-col items-center justify-center p-6 text-center text-[#0F172A]">
-                          <div className="w-20 h-20 rounded-2xl bg-[#0EA5C6]/10 border border-[#0EA5C6]/30 flex items-center justify-center text-[#0F172A] font-bold text-3xl mb-4 shadow-inner">
-                            JB
-                          </div>
+  <div className="w-20 h-20 rounded-2xl bg-white border border-[#0EA5C6]/30 flex items-center justify-center overflow-hidden mb-4 shadow-inner">
+  <img src="/images/jb-logo.jpg" alt="JB logo" className="w-full h-full object-cover scale-125 mix-blend-multiply" />
+  </div>
                           <h3 className="font-bold text-xl text-[#0F172A]">Jeshema Begam</h3>
                           <p className="text-[#475569] text-xs mt-1">B.Tech AI & Data Science Student</p>
                           <div className="mt-4 px-3 py-1 rounded-full bg-[#EEF6FF] text-[11px] text-[#475569] border border-[#DCE7F2]">
@@ -1133,9 +1133,9 @@ export default function App() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-[#DCE7F2]">
             {/* Logo & Tag */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-[#0EA5C6] border border-[#0EA5C6] text-white flex items-center justify-center font-bold text-sm">
-                JB
-              </div>
+  <div className="w-9 h-9 rounded-lg bg-white border border-[#0EA5C6] flex items-center justify-center overflow-hidden">
+  <img src="/images/jb-logo.jpg" alt="JB logo" className="w-full h-full object-cover scale-125 mix-blend-multiply" />
+  </div>
               <div className="text-left">
                 <p className="text-sm font-bold text-[#0F172A]">Jeshema Begam</p>
                 <p className="text-xs text-[#0EA5C6]">B.Tech AI & Data Science Student</p>
