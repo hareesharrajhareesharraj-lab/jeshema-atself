@@ -18,14 +18,14 @@ const menuItems = [
     label: 'Academics',
     description: 'Explore my academic journey',
     icon: School,
-    accent: 'bg-blue-500/20 text-blue-300 border-blue-400/30'
+    accent: 'bg-[#0EA5C6]/10 text-[#0EA5C6] border-[#0EA5C6]/25'
   },
   {
     id: 'blog' as const,
     label: 'Blog',
     description: 'Detailed summary of my project',
     icon: BookOpen,
-    accent: 'bg-cyan-500/20 text-cyan-300 border-cyan-400/30'
+    accent: 'bg-[#14B8A6]/10 text-[#14B8A6] border-[#14B8A6]/25'
   }
 ];
 
@@ -60,7 +60,7 @@ export default function MenuDrawer({ view, onClose, onNavigate }: MenuDrawerProp
             type="button"
             aria-label="Close menu"
             onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-default"
+            className="absolute inset-0 bg-[#0F172A]/30 backdrop-blur-sm cursor-default"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -70,32 +70,32 @@ export default function MenuDrawer({ view, onClose, onNavigate }: MenuDrawerProp
             role="dialog"
             aria-modal="true"
             aria-label={titles[view]}
-            className="absolute right-0 top-0 h-full w-full sm:max-w-xl bg-[#080e22] border-l border-blue-400/25 shadow-2xl shadow-black/60 flex flex-col"
+            className="absolute right-0 top-0 h-full w-full sm:max-w-xl bg-[#F8FAFC] border-l border-[#DCE7F2] shadow-2xl shadow-[#0F172A]/10 flex flex-col"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 280 }}
           >
-            <header className="flex items-center gap-2 px-4 sm:px-6 h-16 border-b border-blue-900/70 shrink-0">
+            <header className="flex items-center gap-2 px-4 sm:px-6 h-16 border-b border-[#DCE7F2] shrink-0">
               {view !== 'menu' ? (
                 <button
                   type="button"
                   onClick={() => onNavigate('menu')}
-                  className="p-2 -ml-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-hidden focus:ring-2 focus:ring-blue-400"
+                  className="p-2 -ml-2 rounded-lg text-[#475569] hover:text-[#0EA5C6] hover:bg-[#EEF6FF] focus:outline-hidden focus:ring-2 focus:ring-[#0EA5C6]/40"
                   aria-label="Back to menu"
                 >
                   <ArrowLeft className="w-5 h-5" />
                 </button>
               ) : (
-                <div className="w-8 h-8 rounded-lg bg-blue-600/30 border border-blue-400/40 text-blue-200 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-[#0EA5C6]/10 border border-[#0EA5C6]/30 text-[#475569] flex items-center justify-center">
                   <LayoutGrid className="w-4 h-4" aria-hidden="true" />
                 </div>
               )}
-              <h2 className="flex-1 text-lg font-bold text-white">{titles[view]}</h2>
+              <h2 className="flex-1 text-lg font-bold text-[#0F172A]">{titles[view]}</h2>
               <button
                 type="button"
                 onClick={onClose}
-                className="p-2 -mr-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-hidden focus:ring-2 focus:ring-blue-400"
+                className="p-2 -mr-2 rounded-lg text-[#475569] hover:text-[#0EA5C6] hover:bg-[#EEF6FF] focus:outline-hidden focus:ring-2 focus:ring-[#0EA5C6]/40"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -125,7 +125,7 @@ export default function MenuDrawer({ view, onClose, onNavigate }: MenuDrawerProp
                             <button
                               type="button"
                               onClick={() => onNavigate(item.id)}
-                              className="group w-full flex items-center gap-4 p-4 rounded-2xl bg-[#0e1b3d]/90 border border-blue-400/25 hover:border-blue-400/60 hover:bg-[#12224c] text-left transition-colors focus:outline-hidden focus:ring-2 focus:ring-blue-400"
+                              className="group w-full flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#DCE7F2] hover:border-[#0EA5C6]/50 hover:bg-[#F8FAFC] text-left transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#0EA5C6]/40"
                             >
                               <span
                                 className={`w-11 h-11 shrink-0 rounded-xl border flex items-center justify-center ${item.accent}`}
@@ -133,10 +133,10 @@ export default function MenuDrawer({ view, onClose, onNavigate }: MenuDrawerProp
                                 <item.icon className="w-5 h-5" aria-hidden="true" />
                               </span>
                               <span className="flex-1 min-w-0">
-                                <span className="block font-bold text-white">{item.label}</span>
-                                <span className="block text-xs text-slate-400 mt-0.5">{item.description}</span>
+                                <span className="block font-bold text-[#0F172A]">{item.label}</span>
+                                <span className="block text-xs text-[#64748B] mt-0.5">{item.description}</span>
                               </span>
-                              <ChevronRight className="w-5 h-5 text-blue-300 group-hover:translate-x-0.5 transition-transform" />
+                              <ChevronRight className="w-5 h-5 text-[#0EA5C6] group-hover:translate-x-0.5 transition-transform" />
                             </button>
                           </motion.li>
                         ))}

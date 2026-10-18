@@ -6,23 +6,198 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0a1128;
+  background-color: #F8FAFC;
 }
 
-/* Custom subtle blue scrollbar */
+@keyframes logo-letter-in {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.logo-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: logo-letter-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.logo-subtitle {
+  opacity: 0;
+  animation: logo-letter-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
+}
+
+/* Ambient background: multiply blend tints the light page without affecting readability */
+.ambient-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 9999px;
+  will-change: transform;
+  animation: ambient-drift 18s ease-in-out infinite;
+}
+
+.ambient-glow-blue {
+  top: -20vmax;
+  right: -15vmax;
+  background: radial-gradient(circle, rgba(14, 165, 198, 0.09) 0%, rgba(14, 165, 198, 0) 65%);
+}
+
+.ambient-glow-teal {
+  bottom: -25vmax;
+  left: -18vmax;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, rgba(20, 184, 166, 0) 65%);
+  animation-delay: -9s;
+}
+
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-6vmax, 4vmax, 0) scale(1.08);
+  }
+}
+
+.ambient-particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: #14B8A6;
+  opacity: 0;
+  animation-name: particle-float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  15% {
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(12px, -18vh, 0);
+  }
+  85% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-8px, -36vh, 0);
+  }
+}
+
+/* Section fade-up reveal (class added by JS so content is visible without it) */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-section.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Card lift on hover (outermost white cards only) */
+main .bg-white:is(.rounded-2xl, .rounded-3xl).border:not(.bg-white *) {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+@media (hover: hover) {
+  main .bg-white:is(.rounded-2xl, .rounded-3xl).border:not(.bg-white *):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px -18px rgba(14, 165, 198, 0.28), 0 6px 16px -8px rgba(15, 23, 42, 0.08);
+  }
+}
+
+/* Buttons: subtle color + scale transition */
+:is(a, button):is([class~="bg-[#0EA5C6]"], [class~="hover:bg-[#EEF6FF]"]) {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  :is(a, button):is([class~="bg-[#0EA5C6]"], [class~="hover:bg-[#EEF6FF]"]):hover {
+    transform: scale(1.03);
+  }
+}
+
+:is(a, button):is([class~="bg-[#0EA5C6]"], [class~="hover:bg-[#EEF6FF]"]):active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-letter,
+  .logo-subtitle {
+    opacity: 1;
+    animation: none;
+  }
+
+  .ambient-glow,
+  .ambient-particle {
+    animation: none;
+  }
+
+  .ambient-particle {
+    display: none;
+  }
+
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  main .bg-white:is(.rounded-2xl, .rounded-3xl).border:not(.bg-white *):hover,
+  :is(a, button):is([class~="bg-[#0EA5C6]"], [class~="hover:bg-[#EEF6FF]"]):hover,
+  :is(a, button):is([class~="bg-[#0EA5C6]"], [class~="hover:bg-[#EEF6FF]"]):active {
+    transform: none;
+  }
+}
+
+/* Custom subtle light-blue scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a1128;
+  background: #EEF6FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e2e5c;
+  background: #BFDCEB;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2b417e;
+  background: #0EA5C6;
 }
