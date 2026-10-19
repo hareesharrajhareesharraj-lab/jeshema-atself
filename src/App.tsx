@@ -48,7 +48,7 @@ interface SkillItem {
 
 // Replace these placeholders with real URLs. Leave a value empty ('') to show it as "coming soon".
 const SITE_LINKS = {
-  linkedin: 'https://www.linkedin.com/in/your-profile',
+  linkedin: 'https://www.linkedin.com/in/jeshema-begam-77428340',
   projectRepo: '',
   projectReport: ''
 };
