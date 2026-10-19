@@ -31,7 +31,7 @@ import {
   CalendarCheck,
   AlertCircle
 } from 'lucide-react';
-import { LayoutGrid, School } from 'lucide-react';
+import { School } from 'lucide-react';
 import MenuDrawer, { type DrawerView } from './components/MenuDrawer';
 import AmbientMotion from './components/AmbientMotion';
 
@@ -398,14 +398,6 @@ export default function App() {
                 </a>
               );
             })}
-            <button
-              type="button"
-              onClick={() => openDrawer('menu')}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium text-[#334155] hover:text-[#0EA5C6] hover:bg-[#EEF6FF] transition-all duration-200"
-            >
-              <LayoutGrid className="w-4 h-4 text-[#0EA5C6]" aria-hidden="true" />
-              Menu
-            </button>
           </nav>
 
           {/* Desktop Direct Contact CTA */}
@@ -457,15 +449,6 @@ export default function App() {
                 </a>
               );
             })}
-            <button
-              type="button"
-              onClick={() => openDrawer('menu')}
-              className="w-full flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-medium text-[#334155] hover:text-[#0EA5C6] hover:bg-[#EEF6FF] transition-colors"
-            >
-              <LayoutGrid className="w-4 h-4 text-[#0EA5C6]" aria-hidden="true" />
-              Menu
-              <span className="ml-auto text-xs text-[#0EA5C6]">Academics · Blog</span>
-            </button>
             <div className="pt-3">
               <a
                 href="#contact"
